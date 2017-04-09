@@ -1,0 +1,132 @@
+% 大体tex-live-fullとか入れたら入る
+\documentclass[9pt,b5paper,dvipdfmx,openany]{jsbook}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac} % 枠付き環境のため
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{xcolor}
+\usepackage{listings,jlisting} % jlistingはtex-live-fullでも入ってない。手動
+\usepackage{fancyvrb}
+\usepackage{wrapfig}
+
+
+% \usepackage{courier}
+%\usepackage{DejaVuSansMono}
+\usepackage[T1]{fontenc}
+% \usepackage{lmodern}
+% \usepackage{luximono}
+% \usepackage[scaled=0.85]{beramono}
+
+% \date{\today}
+
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+
+% 適当に編集する、まぁコレに合わせてやれば良いんじゃないかな
+\lstset{
+  language={C},% プログラミング言語
+  basicstyle={\ttfamily\small},% ソースコードのテキストのスタイル
+  keywordstyle={\bfseries},% 予約語等のキーワードのスタイル
+  commentstyle={},% コメントのスタイル
+  stringstyle={},% 文字列のスタイル
+  frame=trlb,% ソースコードの枠線の設定 (none だと非表示)
+  numbers=none,% 行番号の表示 (left だと左に表示)
+  numberstyle={},% 行番号のスタイル
+  xleftmargin=5pt,% 左余白
+  xrightmargin=5pt,% 右余白
+  keepspaces=true,% 空白を表示する
+  showspaces=false,
+  showstringspaces=false,
+  mathescape=false,% $ で囲った部分を数式として表示する ($ がソースコード中で使えなくなるので注意)
+  backgroundcolor=\color[gray]{0.8},
+  % 手動強調表示の設定
+  moredelim=[is][\fontfamily{pcr}\selectfont\itshape]{@/}{/@},
+  moredelim=[is][\color{red}]{@r\{}{\}@},
+  moredelim=[is][\color{blue}]{@b\{}{\}@},
+  moredelim=[is][\color{DarkGreen}]{@g\{}{\}@},
+% moredelim=[is][\fontfamily{pcr}\itshape]{@@}{@},
+}
+
+\newcommand{\prog}[1]{\colorbox[gray]{0.8}{\lstinline{#1}}}
+
+\title{素敵な本のタイトル}
+\author{偉大な本書きの名前}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{ちゃぷたー１}
+\begin{flushright}
+  \it カッコいい系謎の名言を書く - 作者不明 \\
+\end{flushright}
+
+\section{ほげー}
+
+素敵な文章。
+\footnote{素敵な注釈。あんまり注釈だらけにならないようにね。}
+
+\begin{itemize}
+\item アイテマイズ１
+\item アイテマイズ２
+\item アイテマイズ３
+\end{itemize}
+
+\subsection{プログラム}
+\begin{lstlisting}
+// lstlistingはページ跨いで表示されるんで注意な
+// 最終的に自分で手動で位置調整する必要が有ると思う
+real a;
+int b = 1 + 3;
+int[3] c;
+
+int f (int i) {
+  return i + i;
+}
+\end{lstlisting}
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{lstlisting}[caption=プログラム]
+int f (int a, int b) {
+  return (int)((double) a + b);
+}
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+  \centering
+  かえるぴょこぴょこ みぴょこぴょこ \\
+  あわせてぴょこぴょこ みぴょこぴょこ
+\end{minipage}
+
+\begin{itembox}[l]{あとがき}
+  あとのがき \\
+  残業は悪い文化
+\end{itembox}
+
+\begin{thebibliography}{9}
+  \bibitem{ocaml} OCaml \\
+    \href{http://ocaml.org}{http://ocaml.org} \\
+    大切なことはみんなOCamlとEmacsとクソラノベアニメから学んだんだ。
+\end{thebibliography}
+
+\thispagestyle{empty}
+\vspace*{\stretch{1}}
+\begin{flushright}
+  \begin{minipage}{0.5\hsize}
+    \begin{description}
+    \item{著者：}素敵な名前
+    \item{発行：}20XX年YY月ZZ日
+    \item{印刷：}素敵な印刷所
+    \end{description}
+  \end{minipage}
+\end{flushright}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
