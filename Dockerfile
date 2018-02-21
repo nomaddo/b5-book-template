@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y texlive-full wget unzip \
+RUN apt-get update && apt-get install -y texlive-full wget unzip make \
  && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN wget -O /tmp/master.zip https://github.com/h-kitagawa/plistings/archive/master.zip \
