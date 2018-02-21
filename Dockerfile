@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y texlive-full \
+RUN apt-get update && apt-get install -y texlive-full wget unzip \
  && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN wget -O /tmp/master.zip https://github.com/h-kitagawa/plistings/archive/master.zip \
@@ -9,3 +9,5 @@ RUN wget -O /tmp/master.zip https://github.com/h-kitagawa/plistings/archive/mast
  && mv plistings-master/plistings.sty /usr/share/texlive/texmf-dist/tex/latex/listings \
  && mktexlsr                                                                           \
  && rm -rf /tmp/master.zip plistings-master
+
+RUN apt-get remove wget unzip -y
