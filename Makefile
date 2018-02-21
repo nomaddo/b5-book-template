@@ -4,4 +4,3 @@ all:
 	$(PLATEX) text.tex
 	$(PLATEX) text.tex
 	dvipdfmx -f fonts.map text.dvi
-	cp text.pdf ~/Dropbox
