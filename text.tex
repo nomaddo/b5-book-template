@@ -74,7 +74,20 @@
 \item アイテマイズ１
 \item アイテマイズ２
 \item アイテマイズ３
+\item アイテマイズ４
+  \begin{itemize}
+   \item アイテマイズはネストすることができる
+  \end{itemize}
 \end{itemize}
+
+基本的に本文は普通の文章を書く。改行はよしなにされ、 空白は  無視される。
+強制改行は \textbackslash\textbackslash を \\
+い \\
+れ \\
+る。
+
+改行して1行空白を挟むと段落分けです。 % ここで段落を分かれる
+
 
 \subsection{プログラム}
 \begin{lstlisting}
@@ -97,10 +110,22 @@ int f (int a, int b) {
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\linewidth}
+\begin{itembox}[l]{エリアを線で囲う}
   \centering
   かえるぴょこぴょこ みぴょこぴょこ \\
   あわせてぴょこぴょこ みぴょこぴょこ
+\end{itembox}
 \end{minipage}
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[scale=0.7]{yami.pdf}
+ \caption{イラストを入れる例。figure環境にincludegraphicsをいれる。}
+ \label{fig:yami}
+\end{figure}
+
+\ref{fig:yami}はイラストを入れる例。\prog{label}も書いておけば図番号を自動的に振ってくれて参照できる。
+\prog{caption}は図の説明を書くことができる。
 
 \begin{itembox}[l]{あとがき}
   あとのがき \\
